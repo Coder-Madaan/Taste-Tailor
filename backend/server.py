@@ -5,11 +5,11 @@ from langchain_community.llms import HuggingFaceHub
 from langchain.chains import LLMChain  # Not just 'langchain'
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.memory import ConversationBufferMemory  # Memory moved to core
-
+from flask_cors import CORS
 
 # Initialize the Flask app
 app = Flask(__name__)
-
+CORS(app)
 # API Key and LLM Initialization
 KEY = "AIzaSyBsTD9ZJXtUs_3ZtNfr6A6DwgWGIayeIF0"
 llm = ChatGoogleGenerativeAI(api_key=KEY, model="gemini-1.5-pro", temperature=0.2)
